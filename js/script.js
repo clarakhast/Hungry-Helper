@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var div = document.createElement("div");
             div.innerHTML = `
                 <div class = "receipe">
-                    <img src = "../img/Greek Omelet.png" alt = "food" class="food">
+                    <img src = "./img/Greek Omelet.png" alt = "food" class="food">
                     <h3>${data[i].title}</h3>
                     <p class="ingredients">Ingredients: ${data[i].ingredients}</p>
                     <a href = "${data[i].href}" class = "recipe-btn">Get Recipe</a>
