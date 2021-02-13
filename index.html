@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hungry Helper</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="#" class="logo">Hungry Helper</a>
+                </div>
+            </nav>
+            <div class="intro-text">
+                <h1><span class="white">Hungry</span><span class="navy">Helper</span></h1>
+                <p>Looking For Delicious Receipes?</p>
+                <p>We got you coverd! You can find receipes based on ingredients you have.</p>
+                <p>Just write the ingredient that want and you will find receipes containing what you want.</p>
+                <div>
+                    <input type="text" name="find" id="receipeName" class="search" placeholder="Search receipes ...">
+                </div>
+            </div>
+        </header>
+
+        <div class="filters">
+            <form class="filters" id="filtersForm">
+                <div class="filter-bar">
+                    <h2>All Receipes <span id="resultsnum"></span></h2>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="sort-container">
+            <div>
+                <select name="sort" id="sortOrder" class="sort">
+                    <option value="selected" selected disabled>--Sort By--</option>
+                    <option value="priceAsc">Price Low to High</option>
+                    <option value="priceDesc">Price High to Low</option>
+                    <option value="nameAsc">Name (A-Z)</option>
+                    <option value="nameDesc">Name (Z-A)</option>
+                    <option value="ratings">Ratings</option>
+                </select>
+
+            </div>
+
+            <div>
+                <button id="layoutView" class="layout-btn">Change Layout</button>
+            </div>
+        </div>
+
+
+
+
+        <section id="results" class="results">
+        </section>
+        <div id="res"></div>
+        <ul id="pag"></ul>
+        <div id="myData"></div>
+
+        <footer class="footer">
+            <ul class="social-media-list">
+                <li><a class="social-media" href="#"><i class="fab fa-twitter"></i></li>
+                <li><a class="social-media" href="#"><i class="fab fa-facebook-f"></i></li>
+                <li><a class="social-media" href="#"><i class="fab fa-instagram"></i></li>
+                <li><a class="social-media" href="#"><i class="fab fa-pinterest-p"></i></li>
+            </ul>
+
+            <ul class="refund">
+                <li><a class="hover" href="#">Best Price Guarantee</a></li>
+                <li><a class="hover" href="#">Refund Policy</a></li>
+                <li><a class="hover" href="#">Help & Support</a></li>
+                <li><a class="hover" href="#">Contact</a></li>
+            </ul>
+
+            <ul class="policy">
+
+                <li><a class="hover" href="#">Cookies & Privacy Policy</a></li>
+                <li><a class="hover" href="#">Payment Methods</a></li>
+                <li><a class="hover" href="#">Shipping Info</a></li>
+            </ul>
+
+            <div class="copyright">
+                <p>Candy Land, Crafted with <i class="fas fa-heart"></i> by Clara Khast</p>
+                <p>&copy; Candy Land | All rights reserved.</p>
+            </div>
+        </footer>
+
+
+        <script src="js/script.js"></script>
+</body>
+
+</html>
