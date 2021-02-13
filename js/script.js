@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
         .then(response => response.json())
         .then(response => {
-            response= response.results
+            response = response.results
             console.log(response);
             appendData(response);
         })
@@ -22,7 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
         var mainContainer = document.getElementById("myData");
         for (var i = 0; i < data.length; i++) {
             var div = document.createElement("div");
-            div.innerHTML = 'Name: ' + data[i].title;
+            div.innerHTML = `
+                <div class = "receipe">
+                    <img src = "${data[i].thumbnail}" alt = "food">
+                    <h3>${data[i].title}</h3>
+                    <p class="ingredients">${data[i].ingredients}</p>
+                    <a href = "${data[i].href}" class = "recipe-btn">Get Recipe</a>
+                </div>
+        `;
             mainContainer.appendChild(div);
         }
     }
