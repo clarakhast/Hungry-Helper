@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
     function appendData(data) {
-        var mainContainer = document.getElementById("myData");
+        var mainContainer = document.getElementById("myReceipes");
         for (var i = 0; i < data.length; i++) {
             var div = document.createElement("div");
             div.innerHTML = `
