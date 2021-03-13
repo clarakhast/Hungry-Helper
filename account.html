@@ -36,7 +36,7 @@
     <!-- Edit section -->
     <section class="edit">
         <!-- Edit personal info -->
-        <form class="personal-info">
+        <div class="personal-info">
             <h2><i class="fas fa-pencil-alt"></i> Personal Info</h2>
             <hr />
             <label for="">First Name</label>
@@ -46,7 +46,7 @@
             <input type="text" id="lastName" />
 
             <input type="submit" id="update" value="update" class="submit-btn update-btn" />
-        </form>
+        </div>
 
         <!-- Add receipes -->
         <div class="add-receipe">
@@ -66,7 +66,8 @@
         </div>
     </section>
 
-    <!-- View Receipes -->
+    
+    <!-- Receipes section -->
     <section class="my-receipes">
         <h2 class="navy">My Receipes</h2>
         <small class="navy">Add or edit receipes</small>
@@ -122,7 +123,7 @@
             const update = document.getElementById("update");
             let userRef = null;
 
-            // Get current user's info
+            // Get current user info
             function getUser(uid) {
                 db.collection("Users")
                     .doc(uid)
@@ -137,7 +138,7 @@
                     });
             }
 
-            // Update user's info
+            // Update user info
             function updateUser(uid, first, last) {
                 db.collection("Users").doc(uid).update({
                     firstname: first,

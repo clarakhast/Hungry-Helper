@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class = "receipe">
                                 <img src = "${doc.data().image}"/>
                                 <h3>${doc.data().receipe}</h3>
+                                <p class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
                                 <p class="ingredients">Ingredients: ${doc.data().ingredient}</p>
-                                <a href = "#" class = "recipe-btn">View Recipe</a>
+                                <a href = "#" class = "rec-btn">View Recipe</a>
                             </div>`;
 
                         //add a link to create a delete button below each receipe

@@ -125,19 +125,44 @@ progress {
 
 .receipe {
     margin-top: 2rem;
+    background-color:white;
+    border:1px solid #f4f4f4;
+    border-radius: 2rem;
+    
+}
+
+.receipe img {
+    border-radius: 2rem 2rem 0  0;
+    width:100%
+}
+
+.rec-btn {
+    background-color: white;
+    border-radius: 1rem;
+    border: 2px solid orange;
+}
+
+.rec-btn:hover {
+    background-color: orange;
+    color: white;
+}
+
+.receipe h3, .ingredients {
+    padding: 1rem;
 }
 
 .receipes-container {
     padding-top:0;
     width:80%;
     margin: 0 auto;
+    text-align: left;
 
 }
 
 .delete{
     color: red;
     font-weight:300;
-    margin-top: -4rem;
+    margin-top: 4rem;
 }
 
 .delete:hover {
