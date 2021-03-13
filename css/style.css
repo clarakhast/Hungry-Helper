@@ -161,6 +161,12 @@ select {
     margin-bottom:3rem;
 }
 
+.receipe img {
+    width: 250px;
+    height:250px;
+    object-fit: cover;
+}
+
 h3 {
     font-size: 1.1rem;
     padding:0.2rem;

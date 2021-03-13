@@ -13,8 +13,14 @@
 
 <body>
     <header>
-        <div class="logo-container">
-            <a href="#" class="logo">Hungry Helper</a>
+        <div class="logo-container" id="no-auth">
+            <a href="index.html" class="logo">Hungry Helper</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+        </div>
+        <div id="auth">
+            <a href="account.html">My account</a>
+            <a href="logout.html">logout</a>
         </div>
 
         <div class="intro-text">
@@ -38,6 +44,75 @@
         <p>&copy; Hungry Helper, Crafted with <i class="fas fa-heart"></i> by Clara Khast</p>
     </footer>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAPuIpCkrofVyM_1NrzTgzbKisF53BqMvM",
+            authDomain: "webappprogramming-5ff91.firebaseapp.com",
+            projectId: "webappprogramming-5ff91",
+            storageBucket: "webappprogramming-5ff91.appspot.com",
+            messagingSenderId: "591662237566",
+            appId: "1:591662237566:web:88c7543438bf1b5621152f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const noAuth = document.getElementById("no-auth");
+            const auth = document.getElementById("auth");
+            const ourReceipes = document.getElementById("myReceipes");
+            const db = firebase.firestore();
+
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    console.log("user", user);
+                    auth.style.display = "block";
+                    noAuth.style.display = "none";
+                } else {
+                    auth.style.display = "none";
+                    noAuth.style.display = "block";
+                }
+            });
+
+
+            function init() {
+                db.collection("Receipes")
+                    // .where("nickname", "==", "Negar")
+                    // .limit(2)
+                    .orderBy("timestamp", "asc")
+                    .onSnapshot(function (querySnapshot) {
+
+                        ourReceipes.innerHTML = "";
+
+                        querySnapshot.forEach((doc) => {
+                            const div = document.createElement("div");
+                            div.innerHTML = `
+                    <div class = "receipe">
+                        <img src = "${doc.data().image}"/>
+                        <h3>${doc.data().receipe}</h3>
+                        <p class="ingredients">Ingredients: ${doc.data().ingredient}</p>
+                        <a href = "#" class = "recipe-btn">Get Recipe</a>
+                    </div>
+            `;
+                            ourReceipes.appendChild(div);
+                        });
+                    });
+            }
+
+            init();
+        });
+    </script>
 
     <script src="js/script.js"></script>
 </body>

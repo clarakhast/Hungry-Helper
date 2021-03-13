@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Application Login</h1>
+
+    <div class="logo-container" id="no-auth">
+        <a href="index.html" class="logo">Hungry Helper</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    Email:
+    <input type="text" id="email"/>
+    <br/>
+    <br/>
+    Password:
+    <input type="password" id="password"/>
+    <br/>
+    <br/>
+    <input type="submit" id="login" value="Login"/>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAPuIpCkrofVyM_1NrzTgzbKisF53BqMvM",
+            authDomain: "webappprogramming-5ff91.firebaseapp.com",
+            projectId: "webappprogramming-5ff91",
+            storageBucket: "webappprogramming-5ff91.appspot.com",
+            messagingSenderId: "591662237566",
+            appId: "1:591662237566:web:88c7543438bf1b5621152f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const login = document.getElementById("login");
+
+            login.addEventListener("click", function () {
+                firebase
+                    .auth()
+                    .signInWithEmailAndPassword(email.value, password.value)
+                    .then(function () {
+                        const user = firebase.auth().currentUser;
+                        console.log("user", user);
+                    })
+                    .catch((err) => console.log("err", err));
+            });
+
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    window.location = "index.html";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

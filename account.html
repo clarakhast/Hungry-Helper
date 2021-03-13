@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+</head>
+
+<body>
+    <h1>My Account</h1>
+
+    <div class="logo-container" id="no-auth">
+        <a href="index.html" class="logo">Hungry Helper</a>
+    </div>
+
+    <div id="auth">
+        <a href="account.html">My account</a>
+        <a href="logout.html">logout</a>
+    </div>
+
+    First Name:
+    <input type="text" id="firstName"/>
+    <br/>
+    <br/>
+    Last Name:
+    <input type="text" id="lastName"/>
+    <br/>
+    <br/>
+    <input type="submit" id="update" value="update"/>
+
+    <progress value="0" max="100" id="progress"></progress>
+    <input type="file" id="uploadBtn"/>
+    <br/>
+    <br/>
+    <input type="text" id="imageName"/>
+    <br/>
+    <br/>
+    Receipe's Name:
+    <input type="text" id="receipeName"/>
+    <br/>
+    <br/>
+    Ingredients:
+    <input type="text" id="ingredients"/>
+    <br/>
+    <br/>
+    <button id="submit">Submit</button>
+    <!-- <div id="gallery"></div> -->
+    <div id="receipes"></div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAPuIpCkrofVyM_1NrzTgzbKisF53BqMvM",
+            authDomain: "webappprogramming-5ff91.firebaseapp.com",
+            projectId: "webappprogramming-5ff91",
+            storageBucket: "webappprogramming-5ff91.appspot.com",
+            messagingSenderId: "591662237566",
+            appId: "1:591662237566:web:88c7543438bf1b5621152f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const db = firebase.firestore();
+            const firstname = document.getElementById("firstName");
+            const lastname = document.getElementById("lastName");
+            const update = document.getElementById("update");
+            let userRef = null; 
+
+            function getUser(uid) {
+                db.collection("Users")
+                  .doc(uid)
+                  .get()
+                  .then(function(doc){
+                    if(doc.exists) {
+                        firstname.value = doc.data().firstname;
+                        lastname.value = doc.data().lastname;
+                    } else {
+                        console.log("No such document")
+                    }
+                  });
+            }
+
+            function updateUser(uid, first, last) {
+                db.collection("Users").doc(uid).update({
+                    firstname: first,
+                    lastname: last,
+                });
+            }
+
+            update.addEventListener("click", function () {
+                console.log("update");
+                updateUser(userRef.uid, firstname.value, lastname.value);
+            });
+
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    console.log("user", user);
+                    userRef = user;
+                    getUser(user.uid);
+                } else {
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
