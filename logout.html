@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="logout-intro">
         <div class="navbar">
             <div class="logo-container"><a href="index.html" class="logo">Hungry Helper</a></div>
@@ -26,6 +27,7 @@
             </nav>
         </div>
 
+        <!-- Intro text  -->
         <div class="logout-text">
             <h1><span class="white">Logged </span><span class="navy"> Out</span></h1>
             <p>You have been logged out! To login again use the navbar to go to login page.</p>
@@ -33,6 +35,7 @@
         </div>
     </header>
 
+    <!-- Footer -->
     <footer>
         <div class="page-footer">
             <h2>Get Connected</h2>
@@ -73,9 +76,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Variables
             const noAuth = document.getElementById("no-auth");
             const auth = document.getElementById("auth");
 
+            // Signout and change navbar display
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
                     console.log("user", user);

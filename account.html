@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="account-intro">
         <div class="navbar">
             <div class="logo-container"><a href="index.html" class="logo">Hungry Helper</a></div>
@@ -22,6 +23,7 @@
                 <a href="logout.html">logout</a>
             </nav>
         </div>
+        <!-- Intro text section-->
         <div class="account-text">
             <h1><span class="white">My</span><span class="navy">Account</span></h1>
             <p>Do you want to share your receipes?</p>
@@ -31,7 +33,9 @@
         </div>
     </header>
 
+    <!-- Edit section -->
     <section class="edit">
+        <!-- Edit personal info -->
         <form class="personal-info">
             <h2><i class="fas fa-pencil-alt"></i> Personal Info</h2>
             <hr />
@@ -44,6 +48,7 @@
             <input type="submit" id="update" value="update" class="submit-btn update-btn" />
         </form>
 
+        <!-- Add receipes -->
         <div class="add-receipe">
             <h2><i class="fas fa-plus"></i> Add Receipe</h2>
             <hr />
@@ -61,13 +66,14 @@
         </div>
     </section>
 
-
+    <!-- View Receipes -->
     <section class="my-receipes">
         <h2 class="navy">My Receipes</h2>
         <small class="navy">Add or edit receipes</small>
         <div id="receipes" class="receipes-container"></div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="page-footer">
             <h2>Get Connected</h2>
@@ -109,12 +115,14 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Variables
             const db = firebase.firestore();
             const firstname = document.getElementById("firstName");
             const lastname = document.getElementById("lastName");
             const update = document.getElementById("update");
             let userRef = null;
 
+            // Get current user's info
             function getUser(uid) {
                 db.collection("Users")
                     .doc(uid)
@@ -129,6 +137,7 @@
                     });
             }
 
+            // Update user's info
             function updateUser(uid, first, last) {
                 db.collection("Users").doc(uid).update({
                     firstname: first,

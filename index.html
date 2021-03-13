@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+    <!-- Navigation bar -->
     <header>
         <div class="navbar">
             <div class="logo-container"><a href="index.html" class="logo">Hungry Helper</a></div>
@@ -26,7 +28,7 @@
             </nav>
         </div>
 
-
+        <!-- Intro section -->
         <div class="intro-text">
             <h1><span class="white">Hungry</span><span class="navy">Helper</span></h1>
             <p>Looking For Delicious Receipes?</p>
@@ -38,12 +40,15 @@
         </div>
     </header>
 
+    <!-- Receipes Gallery section -->
     <section>
         <h2 class="navy">Our Receipes <span id="resultsnum"></span></h2>
         <small class="navy">Delicious receipes for you </small>
         <div id="myReceipes" class="receipes-container"></div>
     </section>
 
+
+    <!-- Footer -->
     <footer>
         <div class="page-footer">
             <h2>Get Connected</h2>
@@ -84,11 +89,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Variables
             const noAuth = document.getElementById("no-auth");
             const auth = document.getElementById("auth");
             const ourReceipes = document.getElementById("myReceipes");
             const db = firebase.firestore();
 
+            //Authentication
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
                     console.log("user", user);
@@ -100,11 +107,9 @@
                 }
             });
 
-
+            //Show all receipes from Receipes collection
             function init() {
                 db.collection("Receipes")
-                    // .where("nickname", "==", "Negar")
-                    // .limit(2)
                     .orderBy("timestamp", "asc")
                     .onSnapshot(function (querySnapshot) {
 

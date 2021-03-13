@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Loaded");
 
+    // Global Variables
+
     const db = firebase.firestore();
 
     const uploadBtn = document.getElementById("uploadBtn");
@@ -15,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let fileName = "";
     let fileExt = "";
 
+    // Upload Button event listener
+
     if (uploadBtn) {
         uploadBtn.addEventListener("change", function (e) {
             file = e.target.files[0];
@@ -26,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    // Submit the receipe's image to storage name images 
+    // Add new receipes info to Receipes collection
     if (submit) {
         submit.addEventListener("click", function () {
             if (imageName.value) {
@@ -65,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     ingredients.value = "";
                                     progress.value = 0;
 
-                                    init();
+                                    receipesGallery();
                                 });
                         });
                     }
@@ -74,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Delete receipe
     function deleteReceipe(id) {
         db.collection("Receipes")
             .doc(id)
@@ -86,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    function init() {
+    // Show receipes from database in a div (gallery)
+
+    function receipesGallery() {
         db.collection("Receipes")
-            // .where("nickname", "==", "Negar")
-            // .limit(2)
             .orderBy("timestamp", "asc")
             .onSnapshot(function (querySnapshot) {
 
@@ -97,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     receipes.innerHTML = "";
 
                     querySnapshot.forEach((doc) => {
+                        //add a div to show each receipe in a seperate div
                         const div = document.createElement("div");
                         div.innerHTML = `
                             <div class = "receipe">
@@ -106,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <a href = "#" class = "recipe-btn">View Recipe</a>
                             </div>`;
 
-
+                        //add a link to create a delete button below each receipe
                         let a = document.createElement("a");
                         a.innerHTML = `<i class="far fa-trash-alt"></i> Delete Receipe`;
                         a.className = "delete";
@@ -120,6 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    init();
+    receipesGallery();
 
 });

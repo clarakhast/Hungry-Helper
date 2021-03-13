@@ -3,11 +3,11 @@
 ********************************** */
 
 .account-intro {
-    background-image: url("../img/girl-with-pizza.jpeg");
+    background-image: url("../img/girl-with-pizza.png");
     background-repeat: no-repeat;
     background-position:center;
     background-size:cover;
-    height: 400px;
+    height: 30rem;
 }
 
 .account-text {
@@ -156,6 +156,11 @@ progress {
 } */
 
 @media screen and (max-width: 46em){
+    .account-intro {
+        background: #FEDF68;
+        background-image: none;
+        height:25rem;
+    }
     .account-text, input {
         width:80%;
         margin-right:2rem;

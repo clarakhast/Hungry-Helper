@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="login-page">
         <div class="navbar">
             <nav class="logo-container">
@@ -25,30 +26,29 @@
         </div>
     </header>
 
+    <!-- Register form section -->
     <section class="register-container">
         <div class="bg-img"></div>
         <div class="register-section">
             <h1>Create an Account</h1>
-            <hr/>
-            <form>
-                <label>First Name</label>
-                <input type="text" id="firstName" placeholder="Enter your name"/>
-    
-                <label>Last Name</label>
-                <input type="text" id="lastName"  placeholder="Enter your last name"/>
-    
-                <label>Email</label>
-                <input type="text" id="email" placeholder="Enter your email" />
-    
-                <label>Password</label>
-                <input type="password" id="password" placeholder="Enter your password" />
-                <input type="submit" id="register" value="Create Account" class="submit-btn"/>
-            </form>
+            <hr />
+            <label>First Name</label>
+            <input type="text" id="firstName" placeholder="Enter your name" />
+
+            <label>Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter your last name" />
+
+            <label>Email</label>
+            <input type="text" id="email" placeholder="Enter your email" />
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter your password" />
+            <input type="submit" id="register" value="Create Account" class="submit-btn" />
         </div>
     </section>
 
 
-
+    <!-- Footer -->
     <footer>
         <div class="page-footer">
             <h2>Get Connected</h2>
@@ -89,6 +89,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Variables
             const noAuth = document.getElementById("no-auth");
             const auth = document.getElementById("auth");
             const firstname = document.getElementById("firstName");
@@ -98,9 +99,10 @@
             const register = document.getElementById("register");
             const db = firebase.firestore();
 
+            //Submit the register form info on click
+
             register.addEventListener("click", function () {
                 console.log("submit");
-
                 firebase
                     .auth()
                     .createUserWithEmailAndPassword(email.value, password.value)
@@ -112,6 +114,7 @@
 
             });
 
+            // Add new user to database Users collection
             function addUser(uid, first, last) {
                 db.collection("Users")
                     .doc(uid)

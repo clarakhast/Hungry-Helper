@@ -73,7 +73,7 @@ h1 {
                 HEADER
 ***************************************** */
 .logout-intro{
-    background: url('../img/logout.jpeg');
+    background: url('../img/logout.png');
     background-repeat:no-reapeat;
     background-position:center;
     background-size:cover;
@@ -298,7 +298,7 @@ header.login-page {
 }
 
 .register-container .bg-img {
-    background-image: url("../img/register.jpeg");
+    background-image: url("../img/register.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -412,7 +412,7 @@ footer{
     }
 
     .logout-intro {
-        background: url('../img/marshmallow.jpeg');
+        background: url('../img/marshmallow.png');
         background-size:cover;
     }
 
