@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Hungry Helper</title>
@@ -31,9 +32,9 @@
             <p>Looking For Delicious Receipes?</p>
             <p>We got you coverd! You can find receipes based on ingredients you have.</p>
             <p>Just write the ingredient that want and you will find receipes containing what you want.</p>
-            <div>
+            <!-- <div>
                 <input type="text" name="find" id="receipeName" class="search" placeholder="Search receipes ...">
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -116,7 +117,7 @@
                         <img src = "${doc.data().image}"/>
                         <h3>${doc.data().receipe}</h3>
                         <p class="ingredients">Ingredients: ${doc.data().ingredient}</p>
-                        <a href = "#" class = "submit-btn">Get Recipe</a>
+                        <a href = "#" class = "rec-btn">Get Recipe</a>
                     </div>
             `;
                             ourReceipes.appendChild(div);

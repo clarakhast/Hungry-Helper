@@ -50,9 +50,21 @@ h1 {
     margin: 2rem 0;
 }
 
-.btn:hover {
+.btn:hover, .rec-btn:hover {
     cursor: pointer;
-    background-color: yellow;
+    background-color: #FDD839;
+}
+
+.rec-btn {
+    background-color:orange;
+    padding: 0.9rem 0.7rem;
+    border-radius: 5rem;
+    display:block;
+    width:12rem;
+    text-align: center;
+    font-weight:700;
+    font-size:1rem;
+    margin: 2rem auto;
 }
 
 
@@ -84,7 +96,7 @@ header {
     background-repeat:no-reapeat;
     background-position:bottom;
     background-size:cover;
-    height:46rem;
+    height:40rem;
 }
 
 .navbar {
@@ -218,6 +230,7 @@ select {
     width: 300px;
     height:300px;
     object-fit: cover;
+    border-radius: 0 5rem 0 5rem;
 }
 
 h3 {
