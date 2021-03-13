@@ -1,16 +1,11 @@
 # Hungry Helper Application
-Humber Media Programs website will be built using the SPA framework. 
+Hungry Helper website will be built using the Firebase. 
 
 # Table of Content
 1. [ Group. ](#group)
 2. [ Usage. ](#usage)
+2. [ Technology. ](#tech)
 4. [ Next Steps. ](#next)
-5. [ Contributing. ](#contributing)
-6. [ Submitting an Issue. ](#submitting-issue)
-7. [ Cleaning up issues. ](#cleaning-issue)
-8. [ Submitting a Pull Request. ](#pull)
-9. [ Layout Pages. ](#layout)
-10. [ General Design System. ](#design)
 
 ## 1. <a name="group"/>Group
 - Clara   [(@clarakhast)](https://github.com/clarakhast)
