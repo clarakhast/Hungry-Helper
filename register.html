@@ -3,37 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Authentication</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Register</title>
 </head>
 
 <body>
-    <h1>Register</h1>
+    <header>
+        <div class="navbar">
+            <nav class="logo-container">
+                <div><a href="index.html" class="logo">Hungry Helper</a></div>
+            </nav>
+            <nav id="no-auth">
+                <a href="register.html">Register</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+        
 
-    <div class="logo-container" id="no-auth">
-        <a href="index.html" class="logo">Hungry Helper</a>
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
-    </div>
+
+        <div class="intro-text">
+            <h1><span class="white">Create an</span><span class="navy">Account</span></h1>
+            <p>Looking For Delicious Receipes?</p>
+            <p>We got you coverd! You can find receipes based on ingredients you have.</p>
+            <p>Just write the ingredient that want and you will find receipes containing what you want.</p>
+        </div>
+    </header>
 
     First Name:
-    <input type="text" id="firstName"/>
-    <br/>
-    <br/>
+    <input type="text" id="firstName" />
+    <br />
+    <br />
     Last Name:
-    <input type="text" id="lastName"/>
-    <br/>
-    <br/>
+    <input type="text" id="lastName" />
+    <br />
+    <br />
     Email:
-    <input type="text" id="email"/>
-    <br/>
-    <br/>
+    <input type="text" id="email" />
+    <br />
+    <br />
     Password:
-    <input type="password" id="password"/>
-    <br/>
-    <br/>
-    <input type="submit" id="register" value="Create Account"/>
+    <input type="password" id="password" />
+    <br />
+    <br />
+    <input type="submit" id="register" value="Create Account" />
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
@@ -69,13 +85,13 @@
             const register = document.getElementById("register");
             const db = firebase.firestore();
 
-            register.addEventListener("click", function() {
+            register.addEventListener("click", function () {
                 console.log("submit");
 
                 firebase
                     .auth()
                     .createUserWithEmailAndPassword(email.value, password.value)
-                    .then(function (data){
+                    .then(function (data) {
                         const user = firebase.auth().currentUser;
                         addUser(user.uid, firstname.value, lastname.value);
                     })
@@ -83,19 +99,19 @@
 
             });
 
-            function addUser( uid, first, last){
+            function addUser(uid, first, last) {
                 db.collection("Users")
-                  .doc(uid)
-                  .set({
-                    firstname: first,
-                    lastname: last,
-                    user: uid,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                })
-                .then(function () {
-                    window.location = "index.html";
-                })
-                .catch((err) => console.log("err", err));
+                    .doc(uid)
+                    .set({
+                        firstname: first,
+                        lastname: last,
+                        user: uid,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    })
+                    .then(function () {
+                        window.location = "index.html";
+                    })
+                    .catch((err) => console.log("err", err));
             }
         });
     </script>

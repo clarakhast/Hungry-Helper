@@ -7,11 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const submit = document.getElementById("submit");
     const imageName = document.getElementById("imageName");
     const progress = document.getElementById("progress");
-    // const gallery = document.getElementById("gallery");
     const receipeName = document.getElementById("receipeName");
     const ingredients = document.getElementById("ingredients");
     const receipes = document.getElementById("receipes");
-    const ourReceipes= document.getElementById("myReceipes");
 
     let file = "";
     let fileName = "";
@@ -75,57 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    // function createGallery () {
-    //     gallery.innerHTML = "";
-    //     const listRef = firebase.storage().ref("images");
-
-    //     listRef
-    //         .listAll()
-    //         .then(function (res) {
-    //             res.items.forEach(function (itemRef) {
-    //                 itemRef
-    //                 .getDownloadURL()
-    //                 .then(function (downloadURL) {
-    //                     console.log("downloadURL", downloadURL);
-
-    //                     const imgWrapper = document.createElement("div");
-    //                     imgWrapper.className = "img_wrapper";
-
-    //                     const img = document.createElement("img");
-    //                     img.src = downloadURL;
-
-    //                     const deleteBtn = document.createElement("button");
-    //                     deleteBtn.innerHTML = "x";
-
-    //                     deleteBtn.addEventListener("click", function() {
-
-    //                         itemRef
-    //                             .delete()
-    //                             .then(function(){
-    //                                 db.collection("Images")
-    //                                   .doc(itemRef.name.split(".").shift())
-    //                                   .delete()
-    //                                   .then(function() {
-    //                                       console.log("file deleted!");
-    //                                       createGallery();
-    //                                   });
-    //                             })
-    //                             .catch((error) => console.log("error", error));
-    //                     });
-
-
-    //                     imgWrapper.append(img);
-    //                     imgWrapper.append(deleteBtn);
-    //                     gallery.append(imgWrapper);
-    //             })
-    //             .catch((error) => console.log("error", error));
-    //         });
-    //     })
-    //     .catch((error) => console.log("error",error));
-    // }
-
-    // createGallery();
 
     function deleteReceipe(id) {
         db.collection("Receipes")

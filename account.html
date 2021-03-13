@@ -3,49 +3,62 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Hungry Helper</title>
 </head>
 
 <body>
-    <h1>My Account</h1>
+    <header class="account-intro">
+        <div class="navbar">
+            <div class="logo-container"><a href="index.html" class="logo">Hungry Helper</a></div>
 
-    <div class="logo-container" id="no-auth">
-        <a href="index.html" class="logo">Hungry Helper</a>
-    </div>
+            <nav id="auth">
+                <a href="account.html">My account</a>
+                <a href="logout.html">logout</a>
+            </nav>
+        </div>
+        <div class="account-text">
+            <h1><span class="white">My</span><span class="navy">Account</span></h1>
+            <p>Do you want to share your receipes?</p>
+            <p>Go ahead and add your receipes so everyone can enjoy them.</p>
+            <p>You may also add or edit your personal info below!</p>
 
-    <div id="auth">
-        <a href="account.html">My account</a>
-        <a href="logout.html">logout</a>
-    </div>
+        </div>
+    </header>
 
-    First Name:
-    <input type="text" id="firstName"/>
-    <br/>
-    <br/>
-    Last Name:
-    <input type="text" id="lastName"/>
-    <br/>
-    <br/>
-    <input type="submit" id="update" value="update"/>
+    <section class="edit">
+        <form class="personal-info">
+            <label for="">First Name</label>
+            <input type="text" id="firstName" />
 
-    <progress value="0" max="100" id="progress"></progress>
-    <input type="file" id="uploadBtn"/>
-    <br/>
-    <br/>
-    <input type="text" id="imageName"/>
-    <br/>
-    <br/>
-    Receipe's Name:
-    <input type="text" id="receipeName"/>
-    <br/>
-    <br/>
-    Ingredients:
-    <input type="text" id="ingredients"/>
-    <br/>
-    <br/>
-    <button id="submit">Submit</button>
+            <label for="">Last Name</label>
+            <input type="text" id="lastName"/>
+
+            <input type="submit" id="update" value="update" class="submit-btn update-btn"/>
+        </form>
+
+        <div class="add-receipe">
+            <progress value="0" max="100" id="progress"></progress>
+            <input type="file" id="uploadBtn" />
+            <input type="text" id="imageName" placeholder="Image name"/>
+
+            <label>Receipe's Name:</label>
+            <input type="text" id="receipeName" placeholder="Receipe's name"/>
+
+            <label>Ingredients:</label>
+            <input type="text" id="ingredients" placeholder="Ingredients" />
+
+            <button id="submit" class="submit-btn">Submit</button>
+        </div>
+    </section>
+
+
+
     <!-- <div id="gallery"></div> -->
     <div id="receipes"></div>
 
@@ -78,20 +91,20 @@
             const firstname = document.getElementById("firstName");
             const lastname = document.getElementById("lastName");
             const update = document.getElementById("update");
-            let userRef = null; 
+            let userRef = null;
 
             function getUser(uid) {
                 db.collection("Users")
-                  .doc(uid)
-                  .get()
-                  .then(function(doc){
-                    if(doc.exists) {
-                        firstname.value = doc.data().firstname;
-                        lastname.value = doc.data().lastname;
-                    } else {
-                        console.log("No such document")
-                    }
-                  });
+                    .doc(uid)
+                    .get()
+                    .then(function (doc) {
+                        if (doc.exists) {
+                            firstname.value = doc.data().firstname;
+                            lastname.value = doc.data().lastname;
+                        } else {
+                            console.log("No such document")
+                        }
+                    });
             }
 
             function updateUser(uid, first, last) {
