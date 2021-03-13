@@ -1,14 +1,17 @@
+/* *********************************
+            INTRO SECTION
+********************************** */
+
 .account-intro {
     background-image: url("../img/girl-with-pizza.jpeg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position:center;
     background-size:cover;
     height: 400px;
 }
 
 .account-text {
     float:right;
-    /* text-align:center; */
     padding-top: 4rem;
     margin-right:4rem;
 }
@@ -19,12 +22,53 @@
     margin-left:0;
 }
 
+/* *********************************
+            EDIT SECTION
+********************************** */
+.edit h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color:orange;
+    text-shadow:none;
+    padding-bottom: 1rem;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+hr {
+    width: 10rem;
+    margin-bottom: 1.5rem;
+    border: 0;
+    border-bottom: 0.1em solid;
+    border-image: linear-gradient(to right, rgb(248, 99, 0), yellow);
+    border-image-slice: 1;
+}
+
 .edit {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 1rem;
+    padding: 0 1rem;;
     width: 90%;
-    margin: 2rem auto;
+    margin: 0 auto 3rem auto;
+    border: 0;
+    border-bottom: 0.1em solid;
+    border-image: linear-gradient(to right, rgb(248, 99, 0), yellow);
+    border-image-slice: 1;
+}
+
+.edit .personal-info {
+    border: 0;
+    border-right: 0.1em solid;
+    border-image: linear-gradient(to bottom, rgb(248, 99, 0), yellow);
+    border-image-slice: 1;
+    padding-right:0;
+    padding-top:3rem;
+}
+
+.edit .add-receipe {
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+    padding-top:3rem;
 }
 
 .edit input {
@@ -43,6 +87,9 @@
     font-weight:bold;
 }
 
+button .submit-btn{
+    padding: 0.3rem 1rem;
+}
 .submit-btn{
     width: 14rem;
     border-radius: 5rem;
@@ -51,10 +98,94 @@
     font-weight:700;
     text-transform: uppercase;
     text-align:center;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
 }
 
 .submit-btn:hover {
     background-color: rgb(255, 102, 0);
     cursor: pointer;
+}
+
+progress {
+    padding: 0.5rem;
+    width: 60%;
+    border: 1px solid orange;
+    border-radius: 5rem;
+}
+
+/* *********************************
+          RECEIPES SECTION
+********************************** */
+.my-receipes h2 {
+    margin: 2rem auto;
+    text-shadow:none;
+    padding-bottom:0.5rem;
+    margin-bottom: 0;
+}
+
+.receipe {
+    margin-top: 2rem;
+}
+
+.receipes-container {
+    padding-top:0;
+    margin-top:0;
+}
+
+.delete{
+    color: red;
+    font-weight:300;
+    margin-top: -4rem;
+}
+
+.delete:hover {
+    cursor: pointer;
+    color: rgb(119, 0, 0);
+}
+
+/* ****************************************
+              MEDIA QUERIES
+***************************************** */
+/* @media screen and (max-width: 70em){
+    .receipes-container {
+        grid-template-columns: 1fr 1fr;
+        width:90%;
+    }
+} */
+
+@media screen and (max-width: 46em){
+    .account-text, input {
+        width:80%;
+        margin-right:2rem;
+        padding-right:0;
+    }
+
+    .edit {
+        display:block;
+    }
+
+    .edit input {
+        width: 100%;
+    }
+
+    .edit .personal-info{
+        border-right:0;
+        border-bottom: 0;
+        border-image:none;
+        padding:0;
+        margin: 2rem 0;
+    }
+
+    .edit .add-receipe {
+        padding: 0;
+        margin: 2rem 0;
+    }
+    .receipes-container {
+        display:block;
+    }
+
+    .edit .submit-btn {
+        width: 60%;
+    }
+
 }

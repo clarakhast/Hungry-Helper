@@ -178,8 +178,8 @@ select {
 }
 
 .receipe img {
-    width: 250px;
-    height:250px;
+    width: 300px;
+    height:300px;
     object-fit: cover;
 }
 
@@ -216,11 +216,56 @@ h3 {
                FOOTER
 ***************************************** */
 footer{
-    background-color:#FBD691;
-    padding:0.8rem;
+    background-color:orange;
     text-align:center;
     font-size:0.8rem;
     font-weight:300;
+}
+
+.page-footer {
+    background-image: url("../img/footer.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height:20rem;
+    padding: 5rem 0;
+}
+
+.page-footer h2 {
+    text-shadow:none;
+    padding-bottom:1rem;
+    font-size: 3rem;
+    font-weight:300;
+    color:white;
+    
+}
+
+.page-footer p {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    font-weight:400;
+    color:white;
+}
+
+.page-footer ul li{
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 1rem;
+    color: white;
+}
+
+.page-footer ul li a{
+    color:white;
+}
+
+.page-footer ul li a:hover {
+    cursor: pointer;
+    color:orange;
+}
+
+.copyright{
+    padding: 1rem 0;
+    font-weight: 400;
 }
 
 /* ****************************************
@@ -239,5 +284,27 @@ footer{
     }
     .receipes-container {
         display:block;
+    }
+    .navbar a{
+        margin-right: 0.5rem;
+        font-size:0.9rem;
+        display:inline-block;
+    }
+
+    .page-footer{
+        padding: 4rem 1rem;
+    }
+
+    .page-footer h2{
+        font-size:2rem;
+    }
+
+    .page-footer p {
+        font-size: 0.9rem;
+    }
+
+    .copyright {
+        font-size:0.5rem;
+        padding: 0.5rem;
     }
 }

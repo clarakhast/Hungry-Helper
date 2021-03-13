@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let fileName = "";
     let fileExt = "";
 
-    if(uploadBtn){
+    if (uploadBtn) {
         uploadBtn.addEventListener("change", function (e) {
             file = e.target.files[0];
             fileName = file.name.split(".").shift();
@@ -26,15 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    if(submit) {
+    if (submit) {
         submit.addEventListener("click", function () {
             if (imageName.value) {
-    
+
                 const id = db.collection("Images").doc().id;
                 const storageRef = firebase.storage().ref(`images/${id}.${fileExt}`);
-    
+
                 const uploadTask = storageRef.put(file);
-    
+
                 uploadTask.on(
                     "state_changed",
                     function (snapshot) {
@@ -47,26 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
                     function () {
                         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                             db.collection("Receipes")
-                              .doc(id)
-                              .set({
-                                  name: imageName.value,
-                                  id: id,
-                                  receipe: receipeName.value,
-                                  ingredient: ingredients.value,
-                                  image: downloadURL,
-                                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                              })
-                              .then(function() {
-                                  file = "";
-                                  fileName = "";
-                                  fileExt = "";
-                                  imageName.value = "";
-                                  receipeName.value = "";
-                                  ingredients.value = "";
-                                  progress.value = 0;
-    
-                                  init();
-                              });
+                                .doc(id)
+                                .set({
+                                    name: imageName.value,
+                                    id: id,
+                                    receipe: receipeName.value,
+                                    ingredient: ingredients.value,
+                                    image: downloadURL,
+                                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                                })
+                                .then(function () {
+                                    file = "";
+                                    fileName = "";
+                                    fileExt = "";
+                                    imageName.value = "";
+                                    receipeName.value = "";
+                                    ingredients.value = "";
+                                    progress.value = 0;
+
+                                    init();
+                                });
                         });
                     }
                 );
@@ -76,41 +76,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function deleteReceipe(id) {
         db.collection("Receipes")
-          .doc(id)
-          .delete()
-          .then(function () {
-              console.log("Document successfully deleted!");
-          })
-          .catch(function () {
-              console.log("Error deleting document");
-          });
+            .doc(id)
+            .delete()
+            .then(function () {
+                console.log("Document successfully deleted!");
+            })
+            .catch(function () {
+                console.log("Error deleting document");
+            });
     }
 
     function init() {
         db.collection("Receipes")
-        // .where("nickname", "==", "Negar")
-        // .limit(2)
-        .orderBy("timestamp", "asc")
-        .onSnapshot( function (querySnapshot) {
+            // .where("nickname", "==", "Negar")
+            // .limit(2)
+            .orderBy("timestamp", "asc")
+            .onSnapshot(function (querySnapshot) {
 
-            if(receipes) {
-                receipes.innerHTML = "";
+                if (receipes) {
+                    receipes.innerHTML = "";
 
-            querySnapshot.forEach((doc) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<img src="${doc.data().image}"/> <h2>${doc.data().receipe}</h2> <p>${doc.data().ingredient}</p>`;
+                    querySnapshot.forEach((doc) => {
+                        const div = document.createElement("div");
+                        div.innerHTML = `
+                            <div class = "receipe">
+                                <img src = "${doc.data().image}"/>
+                                <h3>${doc.data().receipe}</h3>
+                                <p class="ingredients">Ingredients: ${doc.data().ingredient}</p>
+                                <a href = "#" class = "recipe-btn">View Recipe</a>
+                            </div>`;
 
 
-                let span = document.createElement("span");
-                span.innerHTML = "&#10005";
+                        let a = document.createElement("a");
+                        a.innerHTML = `<i class="far fa-trash-alt"></i> Delete Receipe`;
+                        a.className = "delete";
 
-                span.addEventListener("click", () => deleteReceipe(doc.id));
-                li.appendChild(span);
-                receipes.appendChild(li);
+                        a.addEventListener("click", () => deleteReceipe(doc.id));
+                        div.appendChild(a);
+                        receipes.appendChild(div);
+                    });
+                }
+
             });
-            }
-
-        });
     }
 
     init();
