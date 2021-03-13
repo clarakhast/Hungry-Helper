@@ -15,7 +15,7 @@ Hungry Helper website will be built using the Firebase.
 - You can register and login to add or delete receipes.
 - Each receipe should have a name, ingredients and image.
 - Users can change and update their personal info.
-- Application;s design is responsive.
+- Application's design is responsive.
 
 ## 3. <a name="tech"/>Technology
 - This web application has been implemented using firebase storage, firestore and authentication.
