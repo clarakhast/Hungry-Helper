@@ -71,7 +71,7 @@ hr {
     padding-top:3rem;
 }
 
-.edit input {
+.edit input, .register-section input {
     border: 1px solid #f4f4f4;
     border-radius: 1rem;
     display:block;
@@ -79,7 +79,7 @@ hr {
     margin-bottom: 1rem;
 }
 
-.edit input::placeholder{
+.edit input::placeholder, .register-section input::placeholder {
     color:#cccccc;
 }
 
@@ -129,7 +129,9 @@ progress {
 
 .receipes-container {
     padding-top:0;
-    margin-top:0;
+    width:80%;
+    margin: 0 auto;
+
 }
 
 .delete{

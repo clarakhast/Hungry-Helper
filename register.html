@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Register</title>
 </head>
 
 <body>
-    <header>
+    <header class="login-page">
         <div class="navbar">
             <nav class="logo-container">
                 <div><a href="index.html" class="logo">Hungry Helper</a></div>
@@ -22,34 +23,31 @@
                 <a href="login.html">Login</a>
             </nav>
         </div>
-        
-
-
-        <div class="intro-text">
-            <h1><span class="white">Create an</span><span class="navy">Account</span></h1>
-            <p>Looking For Delicious Receipes?</p>
-            <p>We got you coverd! You can find receipes based on ingredients you have.</p>
-            <p>Just write the ingredient that want and you will find receipes containing what you want.</p>
-        </div>
     </header>
 
-    First Name:
-    <input type="text" id="firstName" />
-    <br />
-    <br />
-    Last Name:
-    <input type="text" id="lastName" />
-    <br />
-    <br />
-    Email:
-    <input type="text" id="email" />
-    <br />
-    <br />
-    Password:
-    <input type="password" id="password" />
-    <br />
-    <br />
-    <input type="submit" id="register" value="Create Account" />
+    <section class="register-container">
+        <div class="bg-img"></div>
+        <div class="register-section">
+            <h1>Create an Account</h1>
+            <hr/>
+            <form>
+                <label>First Name</label>
+                <input type="text" id="firstName" placeholder="Enter your name"/>
+    
+                <label>Last Name</label>
+                <input type="text" id="lastName"  placeholder="Enter your last name"/>
+    
+                <label>Email</label>
+                <input type="text" id="email" placeholder="Enter your email" />
+    
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" />
+                <input type="submit" id="register" value="Create Account" class="submit-btn"/>
+            </form>
+        </div>
+    </section>
+
+
 
     <footer>
         <div class="page-footer">

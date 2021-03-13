@@ -248,6 +248,51 @@ h3 {
     width:20rem;
 }
 
+/* ****************************************
+               LOGIN PAGE
+***************************************** */
+.register-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+}
+
+.register-section h1 {
+    color: orange;
+    font-size: 2rem;
+}
+
+.register-section {
+    padding: 2rem;
+}
+
+.register-section h1 {
+    padding-left:0;
+    margin-left: 0;
+}
+
+header.login-page {
+    background:none;
+    height: auto;
+}
+
+.register-section .submit-btn {
+    font-weight:700;
+}
+
+.register-section input {
+    width:90%;
+}
+
+.register-container .bg-img {
+    background-image: url("../img/register.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -10rem;
+    z-index:-1;
+    height:100vh
+}
 
 /* ****************************************
                FOOTER
@@ -360,5 +405,13 @@ footer{
 
     .btn {
         margin: 2rem auto;
+    }
+
+    .register-container{
+        display:block;
+    }
+
+    .register-container .bg-img {
+        display:none;
     }
 }
